@@ -43,4 +43,6 @@ def predict():
 
 # Run the Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Bind to 0.0.0.0 and use the PORT environment variable (default to 10000 for Render)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)  # Disable debug mode in production
