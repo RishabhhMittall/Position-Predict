@@ -12,6 +12,10 @@ with open("label_encoder.pkl", "rb") as encoder_file:
 # Initialize Flask app
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Welcome to the Player Position Predictor API! Use the /predict endpoint to make predictions."
+
 # Define the prediction route
 @app.route("/predict", methods=["POST"])
 def predict():
