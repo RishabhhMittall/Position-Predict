@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import pickle
 import numpy as np
 
@@ -11,6 +12,7 @@ with open("label_encoder.pkl", "rb") as encoder_file:
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 @app.route("/")
 def home():
